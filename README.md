@@ -42,7 +42,3 @@ tests/
     purchase.spec.js
     validation.spec.js
 ```
-
-## Notes
-
-- Tests run against the live site — an internet connection is required
