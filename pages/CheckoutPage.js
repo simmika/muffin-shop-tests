@@ -1,4 +1,4 @@
-const PARCEL_BOX_TRIGGER = '.radio-group-card__item--selected .h-select';   // dropdown trigger inside the selected Omniva card
+const PARCEL_BOX_TRIGGER = '[data-qa="checkout-shippingoptions-parcelselect"]';   // parcel box location dropdown trigger
 const PARCEL_BOX_DROPDOWN = '.h-dropdown-list__dropdown';                   // the dropdown list container
 const PARCEL_BOX_OPTION = '.h-dropdown-list__dropdown .h-t-body-2';         // individual parcel box location option
 

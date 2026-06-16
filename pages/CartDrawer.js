@@ -1,11 +1,9 @@
 class CartDrawer {
   constructor(page) {
     this.page = page;
-    this.cartDrawer = page.locator('aside[class*="site-drawer"]');
-    this.goToCartBtn = page.getByRole('button', { name: /go to cart/i });
-    this.checkoutBtn = page.getByRole('link', { name: /checkout/i }).or(
-      page.getByRole('button', { name: /checkout/i })
-    ).first();
+    this.cartDrawer  = page.locator('[data-qa="site-drawer"]');
+    this.goToCartBtn = page.locator('[data-qa="header-btn-shoppingbag"]');
+    this.checkoutBtn = page.locator('[data-qa="shoppingcart-btn-checkout"]');
   }
 
   async open() {

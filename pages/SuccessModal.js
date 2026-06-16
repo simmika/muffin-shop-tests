@@ -2,8 +2,8 @@ const { expect } = require('@playwright/test');
 
 class SuccessModal {
   constructor(page) {
-    this.modal = page.locator('[class*="modal"], [role="dialog"]').filter({ hasText: /thank you|order/i }).first();
-    this.heading = this.modal.locator('h1, h2, h3, h4, h5').first();
+    this.modal = page.locator('[data-qa="ecommerce-modal-checkout-success-order"]');
+    this.heading = this.modal.getByRole('heading');
   }
 
   async assertSuccess() {
