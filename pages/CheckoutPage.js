@@ -9,7 +9,7 @@ class CheckoutPage {
     this.fullNameField = page.getByPlaceholder(/full name/i);
     this.postalCodeField = page.getByPlaceholder(/postal code/i);
     this.phoneField = page.getByPlaceholder(/phone number/i);
-    this.specialRequestsField = page.getByPlaceholder(/special requests/i);
+    this.specialRequestsField = page.getByRole('textbox', { name: /special requests/i });
     this.placeOrderBtn = page.getByRole('button', { name: /place an order/i });
 
     this.emailError = page.getByRole('alert').filter({ hasText: /email/i });
