@@ -2,7 +2,7 @@ class CartDrawer {
   constructor(page) {
     this.page = page;
     this.cartDrawer  = page.locator('[data-qa="site-drawer"]');
-    this.goToCartBtn = page.locator('[data-qa="header-btn-shoppingbag"]');
+    this.goToCartBtn = page.locator('[data-qa="header-btn-shoppingbag"]').filter({ visible: true });
     this.checkoutBtn = page.locator('[data-qa="shoppingcart-btn-checkout"]');
   }
 
