@@ -13,7 +13,9 @@ const test = base.extend({
     await cartDrawer.open();
     await cartDrawer.proceedToCheckout();
 
-    await use(new CheckoutPage(page));
+    const checkoutPage = new CheckoutPage(page);
+    await checkoutPage.waitForFormReady();
+    await use(checkoutPage);
   },
 });
 
@@ -36,8 +38,12 @@ test.describe('Checkout form validation', () => {
   });
 
   test('shows error for invalid phone number format', async ({ checkoutPage }) => {
+    await checkoutPage.emailField.fill('test@example.com');
+    await checkoutPage.fullNameField.fill('Jane Doe');
+    await checkoutPage.postalCodeField.fill('01001');
     await checkoutPage.phoneField.fill('123');
-    await checkoutPage.phoneField.blur();
+    await checkoutPage.specialRequestsField.fill('none');
+    await checkoutPage.placeOrder();
 
     await expect(checkoutPage.phoneError).toBeVisible();
   });

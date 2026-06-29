@@ -20,6 +20,11 @@ class CheckoutPage {
     this.postalCodeError = page.getByRole('alert').filter({ hasText: /postal/i });
   }
 
+  async waitForFormReady() {
+    await this.postalCodeField.waitFor({ state: 'visible' });
+    await this.page.locator(PARCEL_BOX_TRIGGER).waitFor({ state: 'visible' });
+  }
+
   async fillContactAndDelivery({ email, fullName, postalCode, phone, specialRequests }) {
     await this.emailField.fill(email);
     await this.fullNameField.fill(fullName);
